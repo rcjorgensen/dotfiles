@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -xe
+set -e
 
 sudo apt update
 sudo apt -y upgrade
@@ -31,6 +31,15 @@ fi
 if ! gh auth status; then
 	gh auth login
 fi
+
+NVM_DIR="$HOME/.nvm"
+if [ ! -d "$NVM_DIR" ]; then
+	git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+fi
+
+git -C "$NVM_DIR" checkout v0.40.1
+. "$HOME/.nvm/nvm.sh"
+nvm install 23.3.0
 
 mkdir -p "$HOME/.config"
 
