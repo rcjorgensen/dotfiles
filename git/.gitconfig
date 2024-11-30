@@ -1,0 +1,9 @@
+[user]
+	name = Rolf Christian Jørgensen
+	email = 27211248+rcjorgensen@users.noreply.github.com
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
