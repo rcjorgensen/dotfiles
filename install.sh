@@ -2,10 +2,12 @@
 
 set -e
 
+sudo hwclock --hctosys
+
 sudo apt update
 sudo apt -y upgrade
 
-sudo apt install -y curl wget git stow
+sudo apt install -y curl wget git stow gpg
 
 sudo apt autoremove -y
 
@@ -41,8 +43,14 @@ git -C "$NVM_DIR" checkout v0.40.1
 . "$HOME/.nvm/nvm.sh"
 nvm install 23.3.0
 
+curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+sudo apt update
+sudo apt install wezterm -y
+
 mkdir -p "$HOME/.config"
 
 stow bash
 stow git
 stow nvim
+stow wezterm
