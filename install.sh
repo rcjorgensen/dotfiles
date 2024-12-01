@@ -2,8 +2,6 @@
 
 set -e
 
-sudo hwclock --hctosys
-
 sudo apt update
 sudo apt -y upgrade
 
