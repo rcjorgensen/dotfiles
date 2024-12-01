@@ -29,7 +29,19 @@ sudo apt update
 sudo apt install wezterm -y
 
 mkdir -p "$HOME/.config"
-rm "$HOME/.bashrc" "$HOME/.profile" "$HOME/.bash_logout"
+
+BASHRC="$HOME/.bashrc"
+PROFILE="$HOME/.profile"
+BASH_LOGOUT="$HOME/.bash_logout"
+if [ ! -f "$BASHRC" ]; then
+	rm "$BASHRC"
+fi
+if [ ! -f "$PROFILE" ]; then
+	rm "$PROFILE"
+fi
+if [ ! -f "$BASH_LOGOUT" ]; then
+	rm "$BASH_LOGOUT"
+fi
 
 stow bash
 stow git
