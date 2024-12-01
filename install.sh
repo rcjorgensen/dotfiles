@@ -33,13 +33,13 @@ mkdir -p "$HOME/.config"
 BASHRC="$HOME/.bashrc"
 PROFILE="$HOME/.profile"
 BASH_LOGOUT="$HOME/.bash_logout"
-if [ ! -f "$BASHRC" ]; then
+if [ -f "$BASHRC" ]; then
 	rm "$BASHRC"
 fi
-if [ ! -f "$PROFILE" ]; then
+if [ -f "$PROFILE" ]; then
 	rm "$PROFILE"
 fi
-if [ ! -f "$BASH_LOGOUT" ]; then
+if [ -f "$BASH_LOGOUT" ]; then
 	rm "$BASH_LOGOUT"
 fi
 
