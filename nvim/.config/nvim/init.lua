@@ -1,12 +1,12 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out,                            "WarningMsg" },
-      { "\nPress any key to exit..." },
+      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+      { out, 'WarningMsg' },
+      { '\nPress any key to exit...' },
     }, true, {})
     vim.fn.getchar()
     os.exit(1)
@@ -60,29 +60,29 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-require("lazy").setup({
+require('lazy').setup {
   spec = {
-    "tpope/vim-sleuth",
+    'tpope/vim-sleuth',
     {
-      "stevearc/oil.nvim",
+      'stevearc/oil.nvim',
       config = function()
-        require("oil").setup {
-          columns = { "icon" },
+        require('oil').setup {
+          columns = { 'icon' },
           keymaps = {
-            ["<C-h>"] = false,
-            ["<M-h>"] = "actions.select_split",
+            ['<C-h>'] = false,
+            ['<M-h>'] = 'actions.select_split',
           },
           view_options = {
             show_hidden = true,
           },
         }
 
-        vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+        vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
       end,
     },
     {
-      "pmizio/typescript-tools.nvim",
-      dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+      'pmizio/typescript-tools.nvim',
+      dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
       opts = {},
     },
     {
@@ -99,7 +99,7 @@ require("lazy").setup({
           end,
         },
         { 'nvim-telescope/telescope-ui-select.nvim' },
-        { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+        { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
       },
       config = function()
         require('telescope').setup {
@@ -160,7 +160,7 @@ require("lazy").setup({
         { 'williamboman/mason.nvim', config = true },
         'williamboman/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
-        { 'j-hui/fidget.nvim',       opts = {} },
+        { 'j-hui/fidget.nvim', opts = {} },
         'hrsh7th/cmp-nvim-lsp',
       },
       config = function()
@@ -364,6 +364,20 @@ require("lazy").setup({
         }
       end,
     },
+    {
+      'nvim-treesitter/nvim-treesitter',
+      build = ':TSUpdate',
+      main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+      opts = {
+        ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+        auto_install = true,
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = { 'ruby' },
+        },
+        indent = { enable = true, disable = { 'ruby' } },
+      },
+    },
   },
   checker = { enabled = false },
-})
+}

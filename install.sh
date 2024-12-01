@@ -5,7 +5,7 @@ set -e
 sudo apt update
 sudo apt -y upgrade
 
-sudo apt install -y curl stow gpg
+sudo apt install -y curl stow gpg unzip ripgrep build-essential
 
 sudo apt autoremove -y
 
