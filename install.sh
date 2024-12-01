@@ -29,6 +29,7 @@ sudo apt update
 sudo apt install wezterm -y
 
 mkdir -p "$HOME/.config"
+rm "$HOME/.bashrc" "$HOME/.profile" "$HOME/.bash_logout"
 
 stow bash
 stow git
