@@ -25,12 +25,11 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
+vim.opt.signcolumn = 'yes'
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -51,6 +50,9 @@ vim.g.clipboard = {
   },
   cache_enabled = 0,
 }
+
+vim.cmd.colorscheme 'evening'
+vim.cmd.hi 'Comment gui=none'
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -278,8 +280,11 @@ require('lazy').setup {
         formatters_by_ft = {
           lua = { 'stylua' },
           typescript = { 'prettier' },
+          javascript = { 'prettier' },
           html = { 'prettier' },
+          css = { 'prettier' },
           json = { 'prettier' },
+          jsonc = { 'prettier' },
         },
       },
     },
@@ -364,6 +369,7 @@ require('lazy').setup {
         }
       end,
     },
+
     {
       'nvim-treesitter/nvim-treesitter',
       build = ':TSUpdate',
@@ -378,6 +384,21 @@ require('lazy').setup {
         indent = { enable = true, disable = { 'ruby' } },
       },
     },
+
+    {
+      'windwp/nvim-autopairs',
+      event = 'InsertEnter',
+      -- Optional dependency
+      dependencies = { 'hrsh7th/nvim-cmp' },
+      config = function()
+        require('nvim-autopairs').setup {}
+        -- If you want to automatically add `(` after selecting a function or method
+        local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+        local cmp = require 'cmp'
+        cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+      end,
+    },
   },
+
   checker = { enabled = false },
 }
