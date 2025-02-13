@@ -14,4 +14,5 @@ mkdir -p "$HOME/.config"
 stow git
 stow nvim
 stow nvm
+stow tmux
 stow zsh
