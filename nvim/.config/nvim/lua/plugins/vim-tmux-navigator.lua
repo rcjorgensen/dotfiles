@@ -1,7 +1,7 @@
 return {
   "christoomey/vim-tmux-navigator",
   lazy = false,
-  enabled = false,
+  enabled = true,
   config = function()
     vim.keymap.set('n', '<C-h>', '<cmd> TmuxNavigateLeft<CR>', { desc = 'Move focus to the left window' })
     vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>', { desc = 'Move focus to the right window' })
