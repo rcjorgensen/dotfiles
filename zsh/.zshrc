@@ -49,7 +49,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-alias ls='ls --color '
+alias ls='ls --color --almost-all --human-readable -l'
 
 source <(fzf --zsh)
 
