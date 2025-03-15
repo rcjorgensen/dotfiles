@@ -39,6 +39,10 @@ cd ~/dotfiles
 chsh -s $(which zsh)
 ```
 
+### Install fzf
+
+The .zshrc requires version 0.48.0 or later. If the APT package is older, install it manually with git.
+
 ### Install wezterm
 
 ### Install neovim
