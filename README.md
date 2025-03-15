@@ -29,3 +29,5 @@ git clone git@github.com:rcjorgensen/dotfiles.git ~/dotfiles
 ### Install wezterm
 
 ### Install neovim
+
+### Install nvm
