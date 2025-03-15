@@ -26,6 +26,12 @@ sudo apt install git -y
 git clone git@github.com:rcjorgensen/dotfiles.git ~/dotfiles
 ```
 
+### Change shell
+
+```
+chsh -s $(which zsh)
+```
+
 ### Install wezterm
 
 ### Install neovim
