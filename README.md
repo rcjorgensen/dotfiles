@@ -14,3 +14,8 @@ if [ ! -f "$KEY_FILE" ]; then
   ssh-add ~/.ssh/id_ed25519
 fi
 ```
+### Install git
+
+```sh
+sudo apt install git -y
+```
