@@ -29,7 +29,8 @@ git clone git@github.com:rcjorgensen/dotfiles.git ~/dotfiles
 ### Run install script
 
 ```
-~/dotfiles/install.sh
+cd ~/dotfiles
+./install.sh
 ```
 
 ### Change shell
