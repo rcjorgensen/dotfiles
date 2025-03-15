@@ -19,3 +19,9 @@ fi
 ```sh
 sudo apt install git -y
 ```
+
+### Clone this repo
+
+```
+git clone git@github.com:rcjorgensen/dotfiles.git ~/dotfiles
+```
