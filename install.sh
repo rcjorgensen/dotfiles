@@ -17,4 +17,5 @@ stow git
 stow nvim
 stow nvm
 stow tmux
+stow wezterm
 stow zsh
