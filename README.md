@@ -26,6 +26,12 @@ sudo apt install git -y
 git clone git@github.com:rcjorgensen/dotfiles.git ~/dotfiles
 ```
 
+### Run install script
+
+```
+~/dotfiles/install.sh
+```
+
 ### Change shell
 
 ```
