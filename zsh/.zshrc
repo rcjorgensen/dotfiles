@@ -58,6 +58,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 path+=("$HOME/.local/bin")
+path+=("/usr/local/texlive/2025/bin/x86_64-linux")
 export PATH
 
 eval "$(zoxide init --cmd cd zsh)"
