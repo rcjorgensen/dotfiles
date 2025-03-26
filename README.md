@@ -47,6 +47,8 @@ The .zshrc requires version 0.48.0 or later. If the APT package is older, instal
 
 ### Install neovim
 
+### Install Lua Language Server
+
 ### Install nvm
 
 ### Install Tmux Plugin Manager
